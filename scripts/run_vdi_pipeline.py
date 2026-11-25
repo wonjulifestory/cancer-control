@@ -3,8 +3,13 @@ Run VDI Batch Pipeline (안심활용센터 VDI 내부 실행용 스크립트)
 VDI 내부에서 실제 K-CURE 암 공공 라이브러리 데이터를 읽어와서 일괄 학습 및 통계 요약표를 출력합니다.
 """
 import os
+import sys
 import argparse
 import json
+
+# Ensure project root is in Python path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import pandas as pd
 from src.config import StudyConfig
 from src.preprocess import prepare_train_test_split

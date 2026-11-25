@@ -3,8 +3,13 @@ Run Local Mock Pipeline (로컬 모의 실행 파이프라인)
 AI와 함께 내 컴퓨터에서 전체 분석 파이프라인을 사전 검증하는 원클릭 스크립트
 """
 import os
+import sys
 import argparse
 import json
+
+# Ensure project root is in Python path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import pandas as pd
 from src.config import StudyConfig
 from src.data_generator import generate_mock_kcure_data

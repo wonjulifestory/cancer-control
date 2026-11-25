@@ -81,7 +81,7 @@ def generate_mock_kcure_data(
 
     # 추적기간: 진단 5년 후부터 최대 10년(120개월)
     time_to_chronic = np.random.exponential(scale=1.0 / individual_hazard).round(1)
-    time_to_competing_death = np.random.exponential(scale=180.0).round(1)
+    time_to_competing_death = np.random.exponential(scale=180.0, size=n_samples).round(1)
     censor_time = np.random.uniform(36, 120, size=n_samples).round(1)
 
     survival_time = np.minimum.reduce([time_to_chronic, time_to_competing_death, censor_time])
